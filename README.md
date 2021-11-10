@@ -8,13 +8,19 @@
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[2-1. Network Interface 설정](#1-network-interface-설정)  
 [3. SDN Controller Container로 기동](#SDN-Controller-Container로-기동)  
 [4. SDN 운영기 설치](#SDN-운영기-설치)  
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[1. SDN Controller 설치](##sdn-controller-설치)  
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[2. 다른 SDN module 설치](##(tbd)-다른-sdn-module-설치)  
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[4-1. SDN Controller 설치](##sdn-controller-설치)  
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[4-2. (TBD)다른 SDN module 설치](##(tbd)-다른-sdn-module-설치)  
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[4-3. GW VIP, SNAT public IP를 관리하는 모듈 설치 이후](##(tbd)-다른-sdn-module-설치)  
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[4-4. keepalived 설정](##(tbd)-다른-sdn-module-설치)  
+[5. 사용법](#SDN-운영기-설치)  
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[5-1. ProxyARP CR](##sdn-controller-설치)  
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[5-2. Monitor](##sdn-controller-설치)  
 
 
-# SDN 장비 설정
 
-## 1. SDN Switch 설정
+# 1. SDN 장비 설정
+
+## 1-1. SDN Switch 설정
 
 - minicom console 연결 [[참조]](https://pinocc.tistory.com/156) (window에서는 putty 권장)
     - speed: 115200 설정하고 serial 접속
@@ -26,7 +32,7 @@
 - 세팅 적용 및 재시작
     - #sudo reboot
 
-## 2. Web UI 설정
+## 1-2. Web UI 설정
 
 - Web UI로 접속
     - SDN SW의 management port와 laptop을 연결
@@ -46,7 +52,7 @@
         - vlan을 사용하지 않는 경우 uplink port에 대해서도 trunk로 설정
         - 그 외의 경우: trunk로 설정, tags :1
 
-# 노드 설정
+# 2. 노드 설정
 
 - Network infra 구성
     - 노드의 대역은 10.0.0.0/16 , pod 대역은 10.244.0.0/16를 기준으로 작성
@@ -65,7 +71,7 @@
     - SDN Controller가 최소 하나는 기동 하고 있어야 노드간 통신이 동작하기 때문에, 설치 과정시 주의를 요함.
     - 설치 순서 : Container로 SDN Controller 기동 → k8s 설치 → Pod으로 SDN Controller 하나 기동 → 다른 SuperSDN 모듈들 설치, CustomResource로 ProxyARP 등록 → Container로 기동 중인 SDN Controller 중지 → Pod으로 나머지 SDN Controller 기동
 
-## 1. Network interface 설정
+## 2-1. Network interface 설정
 
 - 노드 재기동 시 IP/PMAC 관리를 위한 설정 (/etc/sysconfig/network-scripts/ifcfg-enp1s0, ifcfg-enp2s0,...)
     - default Gateway 설정
@@ -180,7 +186,7 @@
     
     - 파일 수정 후 service network restart로 네트워크 설정 적용.
 
-# SDN Controller Container로 기동
+# 3. SDN Controller Container로 기동
 
 - docker를 사용해 SDN Controller를 구동시키고, 이를 통해 노드의 내부-외부 통신을 뚫고 k8s를 설치.
 - 사전에 노드의 IP, k8s VIP, GW VIP, SNAT Public IP에 대한 PMAC을 적은 tcn_rcfg.json 파일 작성.
@@ -228,9 +234,9 @@
 - 외부 통신이 되는지 확인
 - ip addr add {k8s Master VIP}/32 dev {SDN Data Plane interface}로 쿠버네티스 클러스터 설치
 
-# SDN 운영기 설치
+# 4. SDN 운영기 설치
 
-## 1. SDN Controller 설치
+## 4-1. SDN Controller 설치
 
 - hypersdn-system namespace 생성
     
@@ -524,15 +530,15 @@
         ```
         
 
-## 2.(TBD) 다른 SDN module 설치
+## 4-2.(TBD) 다른 SDN module 설치
 
-## 3. GW VIP, SNAT public IP를 관리하는 모듈 설치 이후
+## 4-3. GW VIP, SNAT public IP를 관리하는 모듈 설치 이후
 
 - 1) 컨테이너로 띄운 SDN 컨테이너를 종료.
 - 2) pod으로 다시 컨트롤러를 실행.
 - 노드 추가 시 해당 노드의 IP와 MAC을 ProxyARP CR로 생성 후 노드 추가 진행
 
-## 4. keepalived 설정
+## 4-4. keepalived 설정
 
 - keepalived.conf
     
@@ -655,9 +661,9 @@
     - 시도 횟수는 count 값으로 조정 가능, timeout 값은 --connect-timeout 인자로 조정 가능.
     - Master, BACKUP State로 진입 했을 때 시도하는 것들의 성공, 실패 결과가 모두 /etc/keepalived/curlLog에 저장됨.
 
-# 사용법
+# 5. 사용법
 
-## 1. ProxyARP CR
+## 5-1. ProxyARP CR
 
 - 일반 노드 등록 시
     
@@ -707,7 +713,7 @@
     
     - host의 경우 NAME과 PMAC 필드만 나오고, VIP의 경우 NAME과 TARGETNODEIP만 출력됨. 실제로 컨트롤러에 등록된 경우 STATUS에 SUCCESS로 표기됨.
 
-## 2. Monitor
+## 5-2. Monitor
 
 - SDN 스위치에 등록되어 있는 Resource를 조회 가능
 - curl -X GET "{SDN Controller가 떠 있는 노드 IP:8080}/{Resource 이름}"으로 조회 가능
