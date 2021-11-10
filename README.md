@@ -2,14 +2,14 @@
 
 # 목차  
 [SDN 장비 설정](#sdn-장비-설정)  
-    [1. SDN Switch 설정](##sdn-switch-설정)  
-    [2. Web UI 설정](##web-ui-설정)  
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[1. SDN Switch 설정](##sdn-switch-설정)  
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[2. Web UI 설정](##web-ui-설정)  
 [노드 설정](#노드-설정)  
-    [1. Network Interface 설정](##network-interface-설정)  
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[1. Network Interface 설정](##network-interface-설정)  
 [SDN Controller Container로 기동](#sdn-controller-container로-기동)  
 [SDN 운영기 설치](#sdn-운영기-설치)  
-
-
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[1. SDN Controller 설치](##sdn-controller-설치)  
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[2. 다른 SDN module 설치](##(tbd)-다른-sdn-module-설치)  
 
 
 # SDN 장비 설정
@@ -524,7 +524,7 @@
         ```
         
 
-## 2.(TBD) 다른 SDN module 설치 및 동작 확인
+## 2.(TBD) 다른 SDN module 설치
 
 ## 3. GW VIP, SNAT public IP를 관리하는 모듈 설치 이후
 
