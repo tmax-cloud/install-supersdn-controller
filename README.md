@@ -40,6 +40,7 @@
     - 172.31.1.100 으로 접속
         - id/password = admin/password
 - br0 설정     
+    - br0가 없다면 생성
     - br0 하단 메뉴 중 Controllers 설정
         - Method : TCP , Connection Mode : out-of-band, IP : 172.31.1.1, Port:6633
         - Method : TCP , Connection Mode : out-of-band, IP : 172.31.1.2, Port:6633
