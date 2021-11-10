@@ -696,7 +696,7 @@ SuperSDN/v2 Controller
     
     - host의 경우 NAME과 PMAC 필드만 나오고, VIP의 경우 NAME과 TARGETNODEIP만 출력됨. 실제로 컨트롤러에 등록된 경우 STATUS에 SUCCESS로 표기됨.
 
-## Monitor
+## 2. Monitor
 
 - SDN 스위치에 등록되어 있는 Resource를 조회 가능
 - curl -X GET "{SDN Controller가 떠 있는 노드 IP:8080}/{Resource 이름}"으로 조회 가능
@@ -705,7 +705,7 @@ SuperSDN/v2 Controller
 - curl -X GET "localhost:8080/health"
 - 정상이면 "alive":true 출력
 
-1. 스위치 정보 출력
+2. 스위치 정보 출력
 - curl -X GET "localhost:8080/switches"
 
 ```bash
@@ -720,7 +720,7 @@ SuperSDN/v2 Controller
 - DesiredMastership : 컨트롤러간 switch mastership을 분배 할 때 해당 컨트롤러가 갖기로 정해지면 true
 - CurrentMastership : 실제로 해당 컨트롤러가 switch의 mastership을 가지고 있으면 true
 
-1. 포트 리스트 출력
+3. 포트 리스트 출력
 - curl -X GET "localhost:8080/switches/{DpidHex}/ports"
 
 ```bash
@@ -734,14 +734,14 @@ SuperSDN/v2 Controller
 - Type : Host 타입인 경우 UNKNOWN이나 TO_HOST, 스위치간 링크면 TO_SW, 업링크인 포트면 TO_GW
 - State : 0이거나 4 = LIVE ,  2 = BLOCKED , 1 = LINK_DOWN
 
-1. 특정 포트 정보 출력
+4. 특정 포트 정보 출력
 - curl -X GET "localhost:8080/switches/{DpidHex}/ports/{portNo}"
 
 ```bash
 {"Type":"TO_GW","Desc":{"PortNo":1,"HwAddr":"PCyZi8DB","Name":"Z2UtMS8xLzEAAAAAAAAAAA==","Config":0,"State":0,"Curr":10272,"Advertised":10282,"Supported":10282,"Peer":2095,"CurrSpeed":1000000,"MaxSpeed":1000000},"sw_dpid":2037944993637449921}
 ```
 
-1. 링크 정보 출력
+5. 링크 정보 출력
 - curl -X GET "localhost:8080/links"
 
 ```bash
@@ -757,7 +757,7 @@ SuperSDN/v2 Controller
 {"Src":"1c48b86a97960f81","Dst":"1c483c2c998bc0c1","Sport":6,"Dport":6,"Cost":1,"Remote":false}
 ```
 
-1. ARP Host Entry 출력
+6. ARP Host Entry 출력
 - curl -X GET "localhost:8080/arpHosts"
 
 ```bash
@@ -774,7 +774,7 @@ SuperSDN/v2 Controller
 {"HwAddr":"fc:2d:c1:0d:00:00","IP":"172.23.2.3"}
 ```
 
-1. Physical Gateway 출력
+7. Physical Gateway 출력
 - curl -X GET "localhost:8080/phyGWs"
 
 ```bash
