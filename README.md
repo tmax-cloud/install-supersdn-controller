@@ -1,10 +1,16 @@
 # SuperSDN/v2 Controller (작성 중)
 
 # 목차  
-[SDN 장비 설정](#SDN-장비-설정)  
-&nbsp;&nbsp;&nbsp;&nbsp;[1. SDN Switch 설정](##SDN-Switch-설정)  
-&nbsp;&nbsp;&nbsp;&nbsp;[2. Web UI 설정](##Web-UI-설정)  
+[SDN 장비 설정](#sdn-장비-설정)  
+    [1. SDN Switch 설정](##sdn-switch-설정)  
+    [2. Web UI 설정](##web-ui-설정)  
 [노드 설정](#노드-설정)  
+    [1. Network Interface 설정](##network-interface-설정)  
+[SDN Controller Container로 기동](#sdn-controller-container로-기동)  
+[SDN 운영기 설치](#sdn-운영기-설치)  
+
+
+
 
 # SDN 장비 설정
 
@@ -174,7 +180,7 @@
     
     - 파일 수정 후 service network restart로 네트워크 설정 적용.
 
-## 2. SDN Controller Container로 기동
+# SDN Controller Container로 기동
 
 - docker를 사용해 SDN Controller를 구동시키고, 이를 통해 노드의 내부-외부 통신을 뚫고 k8s를 설치.
 - 사전에 노드의 IP, k8s VIP, GW VIP, SNAT Public IP에 대한 PMAC을 적은 tcn_rcfg.json 파일 작성.
@@ -222,7 +228,7 @@
 - 외부 통신이 되는지 확인
 - ip addr add {k8s Master VIP}/32 dev {SDN Data Plane interface}로 쿠버네티스 클러스터 설치
 
-# SDN 운영기 Pod 설치
+# SDN 운영기 설치
 
 ## 1. SDN Controller 설치
 
