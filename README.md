@@ -42,8 +42,7 @@
 - br0 설정
     - br0 하단 메뉴 중 Controllers 설정
         
-        [https://lh6.googleusercontent.com/gplU6QxhhlbdtKqSx4bhqusEU0dMP1Tuuv3kKeO6Ky7LieEhhZb1-Q4VFM0DuXpPYSEXFP0d01PH93HzpJ4V1_Bl1_Kg4RVoDsuqcJx9gVEXOoTFnclgF3-oLhVBFLb-9w7j48dO](https://lh6.googleusercontent.com/gplU6QxhhlbdtKqSx4bhqusEU0dMP1Tuuv3kKeO6Ky7LieEhhZb1-Q4VFM0DuXpPYSEXFP0d01PH93HzpJ4V1_Bl1_Kg4RVoDsuqcJx9gVEXOoTFnclgF3-oLhVBFLb-9w7j48dO)
-        
+<img src="https://lh6.googleusercontent.com/gplU6QxhhlbdtKqSx4bhqusEU0dMP1Tuuv3kKeO6Ky7LieEhhZb1-Q4VFM0DuXpPYSEXFP0d01PH93HzpJ4V1_Bl1_Kg4RVoDsuqcJx9gVEXOoTFnclgF3-oLhVBFLb-9w7j48dO">        
         - Method : TCP , Connection Mode : out-of-band, IP : 172.31.1.1, Port:6633
         - Method : TCP , Connection Mode : out-of-band, IP : 172.31.1.2, Port:6633
         - 세팅한 IP가 sdn controller(=TCNC)를 가지고 있는 노드의 인터페이스 IP임
