@@ -798,7 +798,7 @@
 ```
 
 # 6. Troubleshotting
-# 6-1. k8s cluster node not ready
+## 6-1. k8s cluster node not ready
 
 - 
 
