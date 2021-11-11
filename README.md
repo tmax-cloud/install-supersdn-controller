@@ -413,7 +413,7 @@
     ```
     
     - SNAT public IP, k8s Master VIP를 제외한 노드의 ProxyARP Entry만 작성
-    - PMAC 형식만 입력할 
+    - PMAC 형식만 입력할 수 있음 
 - Controller-1, Controller-2 작성
     
     ```bash
