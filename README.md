@@ -413,6 +413,7 @@
     ```
     
     - SNAT public IP, k8s Master VIP를 제외한 노드의 ProxyARP Entry만 작성
+    - PMAC 형식만 입력할 
 - Controller-1, Controller-2 작성
     
     ```bash
@@ -798,7 +799,4 @@
 ```
 
 # 6. Troubleshotting
-## 6-1. k8s cluster node not ready
-
-- 
 
