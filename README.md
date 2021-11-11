@@ -15,6 +15,7 @@
 [5. 사용법](#5-사용법)  
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[5-1. ProxyARP CR](#5-1-proxyarp-cr)  
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[5-2. Monitor](#5-2-monitor)  
+[6. Troubleshooting](#6-troubleshotting)  
 
 
 
