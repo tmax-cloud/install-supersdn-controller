@@ -57,7 +57,7 @@
     - SDN 망을 관리하기 위한 노드(=SDN Controller가 뜨는 노드)는 두개가 존재함
     - 외부 인터넷을 사용하기 위한 Gateway용 노드가 존재함
     - 클러스터 내부에서 외부와 통신하기 위해서는 Gateway용 노드에서 NAT를 거치게 됨
-    - (TBD) ~~외부 노출을 위한 NAT rule 설정은 Gateway agent가, Active Gateway 노드 선별은 SDN watcher가 담당함~~
+    - (TBD) 외부 노출을 위한 NAT rule 설정은 Gateway agent가, Active Gateway 노드 선별은 SDN watcher가 담당함
     - 일반 노드의 default gateway는 가상 default gateway 주소(GW VIP)로 설정
     - Gateway 노드의 default gateway는 실제 물리 gateway로 설정함
     - k8s 노드들은 k8s Master VIP를 통해 k8s API에 접근함. k8s Master VIP는 keepalived를 통해 failover를 수행함.
