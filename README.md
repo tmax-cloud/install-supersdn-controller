@@ -201,8 +201,7 @@
                                     {"ip_addr" : "10.0.9.4", "mac_addr" : "fc:c0:c1:0e:00:00"},
                                     {"ip_addr" : "10.0.9.5", "mac_addr" : "fc:2d:c1:0d:00:00"},
                                     {"ip_addr" : "172.22.2.2", "mac_addr" : "fc:c0:c1:0e:00:00"},
-                                    {"ip_addr" : "172.22.2.3", "mac_addr" : "fc:2d:c1:0d:00:00"}],
-            "cm_gid" : 4000
+                                    {"ip_addr" : "172.22.2.3", "mac_addr" : "fc:2d:c1:0d:00:00"}]
     }
     ```
     
