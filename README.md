@@ -795,3 +795,9 @@
 {"HwAddr":"60:bc:ef:93:68:f2","IP":"172.24.1.1"}
 {"HwAddr":"60:9c:9f:93:68:f0","IP":"172.23.2.1"}
 ```
+
+# 6. Troubleshotting
+# 6-1. k8s cluster node not ready
+
+- 
+
