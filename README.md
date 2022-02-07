@@ -217,7 +217,8 @@
             - k8s Master VIP와 k8s Master를 Init할 노드의 PMAC
     - 10.0.9.1 ~ 10.0.9.5은 노드, 10.0.0.1은 GW VIP, 10.0.0.2는 k8s Master VIP, 172.22.2.2, 3는 SNAT Public IP로 작성한 예제
 - podman을 통해 SDN Controller 이미지를 설치할 노드에 불러오고, 다음의 커맨드 실행
-    - podman run -d --privileged --network host -v {작성한 tcn_rcfg.json 경로}:/opt/tcnc/config/tcn_rcfg.json -p 6633:6633 tmaxcloudck/hypersdn-controller-v2:v0.0.1  
+    - podman run -d --privileged --network host -v {작성한 tcn_rcfg.json 경로}:/opt/tcnc/config/tcn_rcfg.json -p 6633:6633 tmaxcloudck/hypersdn-controller-v2:v0.0.1
+        - e.g.) podman run -d --privileged --network host -v root/tcn_rcfg.json:/opt/tcnc/config/tcn_rcfg.json -p 6633:6633 tmaxcloudck/hypersdn-controller-v2:v0.0.3   
 - 노드로 통신이 되는지 확인 후, GW 노드에 public 통신을 위한 SNAT룰을 수동으로 내림
 - (TBD) 수동으로 내린 SNAT룰은 GW Agent가 기동할 때 지울 수 있도록 custom chain(NAT-POSTROUTING)에 룰을 내린다.
     
