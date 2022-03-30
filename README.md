@@ -227,9 +227,12 @@
     iptables -t nat -N NAT-POSTROUTING
     iptables -t nat -A PREROUTING -j NAT-PREROUTING 
     iptables -t nat -A POSTROUTING -j NAT-POSTROUTING
-    iptables -t nat -A NAT-POSTROUTING -s 10.0.0.0/8 ! -d 10.0.0.0/8 -o {GW 노드의 data plane interface 이름} -j MASQUERADE
+    iptables -t nat -A NAT-POSTROUTING -s 10.0.0.0/8 ! -d 10.0.0.0/8 -o {GW 노드의 public 대역 interface 이름} -j MASQUERADE <- GW Node가 public 대역을 직접 무는 경우
+    iptables -t nat -A NAT-POSTROUTING -s 10.0.0.0/8 ! -d 10.0.0.0/8 -o {SDN dataplane interface  이름} -j SNAT --to-source  {해당 GW 노드에서 SNAT할 public IP} <- 직접 물지 않는 경우
     ```
-    
+
+
+
 - 외부 통신이 되는지 확인
 - ip addr add {k8s Master VIP}/32 dev {SDN Data Plane interface}로 쿠버네티스 클러스터 설치
 
